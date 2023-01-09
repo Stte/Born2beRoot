@@ -4,20 +4,26 @@ echo "Starting config..."
 apt update
 export PATH=$PATH:/usr/sbin
 
-echo "Setting up SSH..."
+echo "SSH..."
 mv /etc/ssh/sshd_config /etc/ssh/sshd_config.bkup
 cp sshd_config /etc/ssh/sshd_config
 systemctl restart ssh
 
-echo "Setting up UFW..."
-apt install ufw
+echo "UFW..."
+apt install ufw -y
 ufw allow 4242
 ufw enable
 
-echo "Setting up sudo..."
+echo "Sudo..."
+apt install sudo -y
 cp sudoconf /etc/sudoers.d/sudoconf
+usermod -a -G sudo tspoof
 
-echo "Password"
+echo "Groups..."
+groupadd user42
+usermod -a -G user42 tspoof
+
+echo "Password..."
 apt install libpam-pwquality libpwquality-tools -y
 mv /etc/login.defs /etc/login.defs.bkup
 cp login.defs /etc/login.defs
@@ -42,3 +48,4 @@ echo "Reboot..."
 ## check after reboot
 # systemctl status ufw
 # systemctl status ssh
+# chage -l user
