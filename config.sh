@@ -7,7 +7,7 @@ export PATH=$PATH:/usr/sbin
 echo "SSH..."
 mv /etc/ssh/sshd_config /etc/ssh/sshd_config.bkup
 cp sshd_config /etc/ssh/sshd_config
-systemctl restart ssh
+systemctl restart sshd
 
 echo "UFW..."
 apt install ufw -y

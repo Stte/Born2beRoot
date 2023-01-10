@@ -1,6 +1,7 @@
 Born2beRoot
 
 export PATH=$PATH:/sbin
+apt install wget unzip
 
 /sbin/init 6
 
