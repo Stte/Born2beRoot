@@ -1,6 +1,7 @@
 #!/bin/sh
 
-MESSAGE = $(echo "#Architecture: $(uname -a)"
+MESSAGE=$(
+echo "#Architecture: $(uname -a)"
 echo "#CPU physical: $(nproc --all)"
 echo "#vCPU: $(lscpu | grep "CPU(s):" | head -n 1 | awk '{print($2)}')"
 echo "#Memory Usage: $(free -m | awk '/Mem:/{printf"%d/%dMB (%.2f%%)\n", $3, $2, $3/$2*100}')"

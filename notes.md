@@ -43,3 +43,13 @@ nano /etc/pam.d/common-password
 password [success=2 default=ignore] pam_unix.so obscure sha512 minlen=8
 apt install libpwquality-tools
 pwscore
+
+
+-------------------------------------
+
+hostnamectl
+hostnamectl set-hostname something
+
+
+crontab -e
+10 * * * * /usr/local/bin/monitoring.sh

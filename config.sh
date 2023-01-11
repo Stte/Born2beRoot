@@ -38,12 +38,11 @@ chage --maxdays 30 root
 chage --mindays 2 root
 chage --warndays 7 root
 
+echo "Monitoring..."
+cp monitoring.sh /usr/local/bin/monitoring.sh
 
-
-
-
-echo "Reboot..."
-# systemctl reboot
+echo "Remember to configure cron (crontab -e and 10 * * * * /usr/local/bin/monitoring.sh)"
+echo "and after that reboot (systemctl reboot)"
 
 ## check after reboot
 # systemctl status ufw
