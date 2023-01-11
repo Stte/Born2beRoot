@@ -2,8 +2,8 @@
 
 MESSAGE=$(
 echo "#Architecture: $(uname -a)"
-echo "#CPU physical: $(nproc --all)"
-echo "#vCPU: $(lscpu | grep "CPU(s):" | head -n 1 | awk '{print($2)}')"
+echo "#CPU physical: $(lscpu -a -p=Core,Socket | grep -v '#' | sort -u | wc -l)"
+echo "#vCPU: $(nproc --all)"
 echo "#Memory Usage: $(free -m | awk '/Mem:/{printf"%d/%dMB (%.2f%%)\n", $3, $2, $3/$2*100}')"
 echo "#Disk Usage: $(df -h --total | awk '/total/ {printf"%d/%dGB (%.2f%%)\n", $3, $2, $5}')"
 echo "#CPU load: $(mpstat | awk '/all/ {printf "%.1f%%\n", 100-$13}')"
