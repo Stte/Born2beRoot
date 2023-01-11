@@ -9,7 +9,7 @@ echo "#Disk Usage: $(df -h --total | awk '/total/ {printf"%d/%dGB (%.2f%%)\n", $
 echo "#CPU load: $(mpstat | awk '/all/ {printf "%.1f%%\n", 100-$13}')"
 echo "#Last boot: $(who -b | awk '{printf "%s %s", $3, $4}')"
 echo "#LVM use: $(lsblk | awk '/lvm/ {if ($1) {printf "yes\n";exit;} else {printf "no"}}')"
-echo "#Connections TCP: $(netstat -t | grep "tcp" | wc -l)"
+echo "#Connections TCP: $(netstat -t | grep "ESTABLISHED" | wc -l)"
 echo "#User log: $(who | wc -l)"
 echo -n "#Network: $(hostname -I) "
 echo "($(cat /sys/class/net/*/address | head -n 1))"

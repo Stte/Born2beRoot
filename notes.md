@@ -48,8 +48,25 @@ pwscore
 -------------------------------------
 
 hostnamectl
-hostnamectl set-hostname something
+hostnamectl set-hostname
 
 
 crontab -e
 10 * * * * /usr/local/bin/monitoring.sh
+/etc/init.d/cron reload
+
+
+---------------------------------------
+
+
+
+hostnamectl
+hostnamectl set-hostname
+groups
+adduser
+groupadd
+systemctl
+chage
+pwscore
+aa-status
+passwd

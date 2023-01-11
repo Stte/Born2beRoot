@@ -39,6 +39,7 @@ chage --mindays 2 root
 chage --warndays 7 root
 
 echo "Monitoring..."
+apt install sysstat -y
 cp monitoring.sh /usr/local/bin/monitoring.sh
 
 echo "Remember to configure cron (crontab -e and 10 * * * * /usr/local/bin/monitoring.sh)"
