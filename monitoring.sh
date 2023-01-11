@@ -13,6 +13,6 @@ echo "#Connections TCP: $(netstat -t | grep "ESTABLISHED" | wc -l)"
 echo "#User log: $(who | wc -l)"
 echo -n "#Network: $(hostname -I) "
 echo "($(cat /sys/class/net/*/address | head -n 1))"
-echo "#Sudo: $(journalctl _COMM=sudo | grep "COMMAND" | wc -l)"
+echo "#Sudo: $(journalctl _COMM=sudo | grep "COMMAND" | wc -l) cmd"
 )
 wall "$MESSAGE"

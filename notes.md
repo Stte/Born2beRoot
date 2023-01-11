@@ -70,3 +70,5 @@ chage
 pwscore
 aa-status
 passwd
+ip addr
+gzip -d

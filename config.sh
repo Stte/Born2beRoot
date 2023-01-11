@@ -42,10 +42,5 @@ echo "Monitoring..."
 apt install sysstat -y
 cp monitoring.sh /usr/local/bin/monitoring.sh
 
-echo "Remember to configure cron (crontab -e and 10 * * * * /usr/local/bin/monitoring.sh)"
+echo "Remember to configure cron (crontab -e and */10 * * * * /usr/local/bin/monitoring.sh)"
 echo "and after that reboot (systemctl reboot)"
-
-## check after reboot
-# systemctl status ufw
-# systemctl status ssh
-# chage -l user
